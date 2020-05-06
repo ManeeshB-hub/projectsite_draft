@@ -5,13 +5,25 @@ html{
 }
 
 body{
+    min-height:100%;
+
     background-color: #1e1e2f;
     color:#ffffff;
 }
 
+/*------------------------------------------------------------------------sidebarstuff--------------------------------------------------------------------------------------------------*/
+
 @media screen and (max-height:450px) {
     .sidebar {padding-top: 0.6vh;}
     .sidebar a {font-size: 7.2vh;}
+    .sidebar {width:2vw;}
+}
+
+.container{
+    max-height: 100vh;
+    margin:5vh;
+    max-width:95vw;
+    padding:5px;
 }
 
 #main{
@@ -21,7 +33,7 @@ body{
 
 .sidebar{
     height:100vh;
-    width:5vw;
+    width:4.5vmax;
     position:fixed;
     z-index: 1;
     top:0;
@@ -34,11 +46,11 @@ body{
 }
 
 .sidebar a{
-    padding:1.4vh 1.4vh 1.4vh 3.5vh;
+    padding:1.4vh 1.4vh 1.4vh 1.5vmax;
     text-decoration: none;
     display:block;
     color:#ffffff;
-    font-size:3vh;
+    font-size:1.4vmax;
     transition: 0.5s;
 }
 
@@ -46,4 +58,76 @@ body{
     padding-bottom:1.1vh;
     margin-bottom:1.7vh;
     margin-right:2vw;
+}
+
+
+.card{
+    text-align:left;
+    margin-left:3.4vmax;
+    margin-bottom:10.4vmax;
+    border-radius: 5px;
+
+    background-color: #27293d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-body{
+    padding:1vmax;
+}
+
+.card-title{
+    font-size: 1.5vmax;
+    font-family: 'Poppins',sans-serif;
+
+    margin-bottom:0.5vmax;
+
+    transition: all 0.5s;
+}
+
+.card-text{
+    padding-top: 1vmax;
+    font-size: 6vmax;
+    text-align: center;
+}
+/* .panel{
+    text-align:left;
+    margin-left:50px;
+    margin-bottom:100px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    position:absolute;
+    z-index:1;
+
+    background-color: #27293d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    transition: all 0.5s ease-in-out;
+}
+
+.dash-title{
+    color:#eeeeee;
+
+    padding-top:20px;
+    padding-left:20px;
+    padding-bottom:25px;
+
+    font-family: 'Poppins',sans-serif;
+
+    transition:all 0.5s;
+}*/
+
+.dash-icon{
+    margin-right:0.5vmax;
+}
+
+.xs{
+    width:15vmax;
+    height:15vmax;
+}
+
+.no_of_parked{
+    font-size:20vh;
+    text-align: center;
+    position: fixed;
 }
