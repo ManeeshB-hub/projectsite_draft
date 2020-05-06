@@ -24,11 +24,12 @@ body{
     margin:5vh;
     max-width:95vw;
     padding:5px;
+    margin-top:5vmax;
 }
 
 #main{
     transition: 0.5s;
-    margin-left:5vw;
+    margin-left:2vmax;
 }
 
 .sidebar{
@@ -64,7 +65,8 @@ body{
 .card{
     text-align:left;
     margin-left:3.4vmax;
-    margin-bottom:10.4vmax;
+    margin-bottom:2.4vmax;
+    margin-right:1vmax;
     border-radius: 5px;
 
     background-color: #27293d;
@@ -73,6 +75,7 @@ body{
 
 .card-body{
     padding:1vmax;
+    padding-bottom:0;
 }
 
 .card-title{
@@ -89,6 +92,41 @@ body{
     font-size: 6vmax;
     text-align: center;
 }
+
+.dash-icon{
+    margin-right:0.5vmax;
+    color:#fff;
+}
+
+.xs{
+    width:15vmax;
+    height:15vmax;
+}
+
+.no_of_parked{
+    font-size:20vh;
+    text-align: center;
+    position: fixed;
+}
+
+.sensor{
+    width:43vmax;
+    height:24vmax;
+    padding:20px 30px 3.3vmax 20px;
+}
+
+.graph-title{
+    font-size:1.5vmax;
+    font-family:'Poppins',sans-serif;
+    margin-bottom:0.5vmax;
+
+    transition:all 0.5s
+}
+
+.sens-graph{
+    padding-top:25px;
+}
+
 /* .panel{
     text-align:left;
     margin-left:50px;
@@ -116,18 +154,3 @@ body{
 
     transition:all 0.5s;
 }*/
-
-.dash-icon{
-    margin-right:0.5vmax;
-}
-
-.xs{
-    width:15vmax;
-    height:15vmax;
-}
-
-.no_of_parked{
-    font-size:20vh;
-    text-align: center;
-    position: fixed;
-}
