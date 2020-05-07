@@ -23,11 +23,34 @@
         <title>Lane-2</title>
     </head>
     <body>
-        <div id="mySidebar" class="sidebar">
+        <div id="mySidebar" class="sidebar"  onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
             <a href="dashboard.html"><i class="fas fa-tachometer-alt sidebar-icons"></i>DASHBOARD</a>
             <a href="lane1.html"><i class="fas fa-road sidebar-icons"></i>LANE 1</a>
             <a href="lane2.html"><i class="fas fa-road sidebar-icons"></i>LANE 2</a>
             <a href="contact.html"><i class="far fa-envelope sidebar-icons"></i>CONTACT</a>
+        </div>
+
+        <div id="main" class="container">
+            <div class="card controls">
+                <div class="card-body">
+                    <h1 class="card-title control-title">Lane-2 Manual</h1>
+                    <br />
+                    <ul class="switches">
+                        <div class="row l2-r1">
+                            <div class="col col-lg-4 col-4">
+                                <li id="l2_1" class="switch"><div class="status">ON</div><br /><div class=stat-var>Lane-2 Light-1</div></li>
+                            </div>
+                            <div class="col col-lg-4 col-4">
+                                <li id="l2_2" class="switch"><div class="status">ON</div><br /><div class=stat-var>Lane-2 Light-2</div></li>
+                            </div>
+                            <div class="col col-lg-4 col-4">
+                                <li id="l3_3" class="switch"><div class="status">ON</div><br /><div class=stat-var>Lane-2 Light-3</div></li>
+                            </div>
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
 
     </body>
