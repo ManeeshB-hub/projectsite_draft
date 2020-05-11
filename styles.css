@@ -191,6 +191,7 @@ body{
     border-style: solid;
     border-color: #ec250d;
     transform: scale(1.1);
+    padding-top:1.5vmax;
 }
 
 .stat-var{
