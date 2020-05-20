@@ -49,10 +49,20 @@ void cons(char bfr[4]) {
   int lane = (int)bfr[1] - 48;
   if (lane == 1) {
     if (bfr[3] == 'O') {
-      analogWrite(led_l1[k - 1], 255);
+      if (k > 6) {
+        digitalWrite(led_park[k - 7], HIGH);
+      }
+      else {
+        analogWrite(led_l1[k - 1], 255);
+      }
       Serial.println("ON");
     } else if (bfr[3] == 'F') {
-      analogWrite(led_l1[k - 1], 0);
+      if (k > 6) {
+        digitalWrite(led_park[k - 7], LOW);
+      }
+      else {
+        analogWrite(led_l1[k - 1], 0);
+      }
       Serial.println("OFF");
     }
   } else if (lane == 2) {
