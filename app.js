@@ -1,6 +1,6 @@
 var bar_status = true;
 var msg;
-
+var x,y;
 client = new Paho.MQTT.Client("broker.mqttdashboard.com", Number("8000"), "clientId-Y5IcOSSr2J");
 
 // set callback handlers
@@ -16,6 +16,7 @@ function onConnect() {
   // Once a connection has been made, make a subscription and send a message.
   console.log("onConnect");
   client.subscribe("World");
+  client.subscribe("/Sensors");
   message = new Paho.MQTT.Message("on 1");
   message.destinationName = "World";
   client.send(message);
@@ -32,15 +33,16 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
     console.log(message.destinationName)
     console.log(message.payloadString);
-    if(message.destinationName==="/test"){
+    if(message.destinationName==="/Sensors"){
 
-         x=message.payloadString;
-         x=Number(x)+5
-         $(".no_cars").text(x);
-    }else if(message.destinationName==="/test2"){
-        y=message.payloadString;
-        $("#one_1").text(y);
+        var sensorJSON=JSON.parse(message.payloadString);
+        x=Number(sensorJSON.ldr1);
+
+        y=Number(sensorJSON.ldr2);
+        console.log("ARRIVED "+y);
+
     }
+
 
 }
 
@@ -104,17 +106,26 @@ $(document).ready(function() {
         return (Math.random());
     }
 
+    function sensdata1(){
+        return x;
+    }
+
+    function sensdata2(){
+        console.log("ASSIGNED "+y);
+        return y;
+    }
+
     function onRefresh(chart) {
         chart.config.data.datasets[0].data.push({
             x: Date.now(),
-            y: randomScalingFactor()
+            y: sensdata1()
         });
     }
 
     function onRefresh2(chart) {
         chart.config.data.datasets[0].data.push({
             x: Date.now(),
-            y: randomScalingFactor()
+            y: sensdata2()
         });
     }
 
@@ -213,7 +224,7 @@ $(document).ready(function() {
                         duration: 20000,
                         refresh: 1000,
                         delay: 2000,
-                        onRefresh: onRefresh
+                        onRefresh: onRefresh2
                     },
                     gridLines: {
                         drawOnChartArea: true

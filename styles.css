@@ -200,6 +200,26 @@ body{
     margin-left:1vmax;
     margin-bottom:3vmax;
 }
+
+/*--------------------------------contact--------------------------*/
+.contact-details{
+    text-align: center;
+}
+.contact-list{
+    list-style: none;
+}
+
+.contact-image{
+    height:10%;
+    width:10%;
+    border-radius: 100%;
+    margin:2vmax
+}
+
+.contact-item{
+    margin:0.5vmax;
+    font-family: 'Poppins',sans-serif;
+}
 /* .panel{
     text-align:left;
     margin-left:50px;
