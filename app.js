@@ -75,7 +75,7 @@ function ss(event){
         console.log(k);
         msg=new Paho.MQTT.Message(k);
     }
-    msg.destinationName="Lane1";
+    msg.destinationName="/Lane1";
     client.send(msg);
 }
 

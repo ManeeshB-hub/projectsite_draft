@@ -8,7 +8,7 @@ const char* ssid="Sreelath";
 const char* password="9849444584";
 const char* mqtt_server="broker.mqttdashboard.com";
 
-#define MQTT_PUB "Sensors"
+#define MQTT_PUB "/Sensors"
 
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
@@ -38,8 +38,8 @@ void reconnect(){
     client.publish("outTopic","hello");
     if(client.connect("ESP8266Client123456789")){
       Serial.println("connected");
-      client.subscribe("lane1");
-      client.subscribe("lane2");
+      client.subscribe("/Lane1");
+      client.subscribe("/Lane2");
     }
     else{
       Serial.print("failed,rc=");
@@ -56,8 +56,8 @@ void callback(const char* topic,byte* payload,unsigned int length1){
   Serial.print(topic);
   Serial.print("]");
 
-  char t1[]="lane1";
-  char t2[]="lane2";
+  char t1[]="/Lane1";
+  char t2[]="/Lane2";
 
   String msgt;
 
