@@ -79,9 +79,9 @@ void cons(char bfr[4]) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////RECIEVE/////////////////////////////////////////////////////////////////////////////////////////////////
 void recieve() {
   if (Serial.available() > 0) {
-    char bfr[4];
-    memset(bfr, 0, 4);
-    Serial.readBytesUntil('\n', bfr, 3);
+    char bfr[5];
+    memset(bfr, 0, 6);
+    Serial.readBytesUntil('\n', bfr, 4);
     Serial.println(bfr);
     cons(bfr);
   }
