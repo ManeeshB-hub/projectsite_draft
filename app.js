@@ -1,7 +1,7 @@
 var bar_status = true;
 var msg;
 var x,y;
-client = new Paho.MQTT.Client("broker.mqttdashboard.com", Number("8000"), "clientId-Y5IcOSSr2J");
+client = new Paho.MQTT.Client("broker.mqttdashboard.com", Number("8000"), "clientId-9UVbR10rzw");
 
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
@@ -17,6 +17,7 @@ function onConnect() {
   console.log("onConnect");
   client.subscribe("World");
   client.subscribe("/Sensors");
+  client.subscribe("/Cars");
   message = new Paho.MQTT.Message("on 1");
   message.destinationName = "World";
   client.send(message);
@@ -39,8 +40,13 @@ function onMessageArrived(message) {
         x=Number(sensorJSON.ldr1);
 
         y=Number(sensorJSON.ldr2);
-        console.log("ARRIVED "+y);
 
+
+    }
+    else if(message.destinationName=="/Cars"){
+        var no_cars=(message.payloadString.split(""));
+        console.log(no_cars[2]);
+        document.getElementById("cars").innerText=no_cars[2];
     }
 
 
@@ -62,6 +68,7 @@ function ss(event){
     var ev=event.path[1].id.split("");
     var lane=ev[1];
     var light=ev[3];
+    var topic=String(event.target.baseURI);
 
     var msgid="l"+lane+"_"+light;
     var k;
@@ -75,9 +82,14 @@ function ss(event){
         console.log(k);
         msg=new Paho.MQTT.Message(k);
     }
-    msg.destinationName="/Lane1";
+    if(topic.includes("lane1")){
+        msg.destinationName="/Lane1";
+    }else if(topic.includes("lane2")){
+        msg.destinationName="/Lane2";
+    }
     client.send(msg);
 }
+
 
 $(document).ready(function() {
 
@@ -111,7 +123,6 @@ $(document).ready(function() {
     }
 
     function sensdata2(){
-        console.log("ASSIGNED "+y);
         return y;
     }
 
